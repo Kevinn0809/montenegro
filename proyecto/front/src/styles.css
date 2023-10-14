@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;0,8..144,500;0,8..144,700;0,8..144,800;1,8..144,100;1,8..144,600;1,8..144,800&display=swap');
+
+:root {
+    --color-oro: #ffd757;
+}
+
+* {
+    font-family: 'Merriweather', serif;
+    font-family: 'Roboto Serif', serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+body {
+    background: #0F0F0F;
+}
