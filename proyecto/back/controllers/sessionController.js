@@ -19,8 +19,19 @@ exports.generarToken = async (req, res) => {
         rol: Usuariomodel.rol
     }
 
-    const token = jwt.sign(payload, process.env.JWT_WEB_TOKEN, { expiresIn : '2hr'})
+    const token = jwt.sign(payload, process.env.JWT_WEB_TOKEN, { expiresIn: '2hr' })
 
-        //respuesta recomendada 202, en vez de 200 
-        return res.status(202).json(token)
+    //respuesta recomendada 202, en vez de 200 
+    return res.status(202).json(token)
+}
+
+exports.desencriptarToken = (req, res) => {
+    const token = req.body.tokenUser //Obtención token del body para desecnriptar
+    jwt.verify(token, process.env.JWT_WEB_TOKEN, (err, decoded) => {
+        if (err) {
+            return res.status(401).json({ mensaje: 'Token invalido' })
+        }
+        //el payload se decodificará en la variable payload
+        res.status(200).json({ decodedPayload: decoded })
+    })
 }
