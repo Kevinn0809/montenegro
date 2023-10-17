@@ -1,0 +1,58 @@
+#logoNav {
+    height: 40px;
+}
+
+.menu-item {
+    padding: 0 10px;
+    font-size: 16px;
+    color: #ffffffcc;
+    transition: all 0.4s;
+}
+
+.menu-item-login {
+    position: relative;
+    left: 10px;
+    transition: all 0.4s;
+}
+
+.menu-item:hover,
+.menu-item-login:hover {
+    color: var(--color-oro);
+}
+
+.menu-item-login::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: -3px;
+    height: 70%;
+    width: 1px;
+    background-color: #c5c5c5cc;
+}
+
+.iconUserNav {
+    color: #c5c5c5cc;
+}
+
+@media (max-width: 913px) {
+
+    .menu-item-login::before,
+    .menu-item-login {
+        display: none;
+    }
+
+    #items {
+        flex-direction: column;
+    }
+
+    .iconScreenSmall,
+    .fa-bars {
+        transition: all 0.4s;
+    }
+
+    .iconScreenSmall:hover,
+    .fa-bars:hover {
+        color: var(--color-oro);
+    }
+
+}
