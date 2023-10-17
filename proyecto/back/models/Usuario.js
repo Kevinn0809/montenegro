@@ -21,14 +21,10 @@ const UsuarioSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    rol: {
-        type: String,
-        required: true
+    creacion: {
+        type: Date,
+        default: Date.now()
     }
-},
-    {
-        versionKey: false,
-        timestamps: true
-    })
+})
 
 module.exports = mongoose.model('Usuario', UsuarioSchema)
