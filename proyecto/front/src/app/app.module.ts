@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { BarraNavComponent } from './components/barra-nav/barra-nav.component';
 import { FooterComponent } from "./components/footer/footer.component";
 import { PaginaInicioComponent } from './components/pagina-inicio/pagina-inicio.component';
+import { CoreproductosComponent } from './components/coreproductos/coreproductos.component';
+import { DetalleproductosComponent } from './components/detalleproductos/detalleproductos.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         BarraNavComponent,
         FooterComponent,
-        PaginaInicioComponent
+        PaginaInicioComponent,
+        CoreproductosComponent,
+        DetalleproductosComponent
     ],
     imports: [
         BrowserModule,
