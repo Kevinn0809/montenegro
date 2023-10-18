@@ -1,0 +1,78 @@
+<section>
+    <div class="spaceSmall">
+        <div class="bloquePadre">
+            <div class="bloqueIzquierdo">
+                <h1 class="login">
+                    Montenegro
+                </h1>
+                <div class="textLogin">
+                    Bienvenido a la pagina de <strong>logeo</strong>, por favor ingrese sus credenciales
+                </div>
+            </div>
+            <div class="bloqueDerecho">
+                <form class="formLogin">
+                    <div class="input-wrapper">
+                        <input class="input-box" type="email" placeholder="Correo">
+                        <span class="underline"></span>
+                    </div>
+                    <div class="input-wrapper">
+                        <input class="input-box" type="password" placeholder="Contraseña">
+                        <span class="underline"></span>
+                    </div>
+                    <button class="button-submit">Iniciar sesión</button>
+                    <div class="text-white pt-1">
+                        <a class="text-decoration-none" routerLink="#">¿Olvido su Contraseña?</a>
+                    </div>
+                    <div class="pt-1 color-mont">
+                        ¿No tiene cuenta? <a class="text-decoration-none" data-bs-toggle="modal"
+                            data-bs-target="#modalCrearCuenta">Cree una</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalCrearCuenta" tabindex="-1" aria-labelledby="modalResgitro" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-end align-items-end text-white">
+                        <div type="button" class="fa-solid fa-xmark fs-5" data-bs-dismiss="modal" aria-label="Close">
+                        </div>
+                    </div>
+                    <form class="form bg-dark">
+                        <p class="title">Registro</p>
+                        <div class="flex">
+                            <div class="input-wrapper">
+                                <input class="input-box" required="" type="text" placeholder="Nombres">
+                                <span class="underline"></span>
+                            </div>
+                            <div class="input-wrapper">
+                                <input class="input-box" required="" type="text" placeholder="Apellidos">
+                                <span class="underline"></span>
+                            </div>
+                        </div>
+                        <div class="input-wrapper">
+                            <input class="input-box" required="" type="email" placeholder="Correo">
+                            <span class="underline"></span>
+                        </div>
+                        <div class="input-wrapper">
+                            <input class="input-box" required="" type="number" placeholder="Celular">
+                            <span class="underline"></span>
+                        </div>
+                        <div class="input-wrapper">
+                            <input class="input-box" required="" type="password" placeholder="Contraseña">
+                            <span class="underline"></span>
+                        </div>
+                        <div class="input-wrapper">
+                            <input class="input-box" required="" type="password" placeholder="Confirmar contraseña">
+                            <span class="underline"></span>
+                        </div>
+                        <button class="button-submit">Crear cuenta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
