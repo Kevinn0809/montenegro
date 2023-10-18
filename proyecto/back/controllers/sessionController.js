@@ -6,18 +6,20 @@ exports.generarToken = async (req, res) => {
     const { correo, password } = req.body
 
     const usuario = await Usuariomodel.findOne({ correo: correo })
-    if (!Usuariomodel) {
+    if (!usuario.correo) {
         return res.status(401).json({ msg: 'El correo o contraseña es invalido. C' })
     }
-    if (Usuariomodel.password !== password) {
+    if (usuario.password !== password) {
         return res.status(401).json({ msg: 'El correo o contraseña es invalido. P' })
     }
 
     const payload = {
-        usuarioId: Usuariomodel._id,
-        correoE: Usuariomodel.correo,
-        rol: Usuariomodel.rol
+        usuarioId: usuario._id,
+        correoE: usuario.correo,
+        rol: usuario.rol
     }
+
+    console.log(payload)
 
     const token = jwt.sign(payload, process.env.JWT_WEB_TOKEN, { expiresIn: '2hr' })
 

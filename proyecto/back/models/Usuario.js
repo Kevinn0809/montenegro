@@ -23,7 +23,8 @@ const UsuarioSchema = mongoose.Schema({
     },
     rol: {
         type: String,
-        required: true
+        required: true,
+        default: 'cliente'
     }
 },
     {
