@@ -14,7 +14,7 @@
 }
 
 body {
-    padding-top: 5rem;
+    padding-top: 4.5rem;
     display: grid;
     min-height: 100vh;
     grid-template-rows: auto 1fr auto;
