@@ -80,9 +80,10 @@ exports.EditarProducto = async (req, res) => {
                 res.status(404).json('Producto no encontrado.')
                 console.log('Producto no encontrado.');
             } else {
-                const { nombreP, descripcion, valor, activo, oferta } = req.body
+                const { nombreP, descripcion, categoria, valor, activo, oferta } = req.body
                 datosProducto.nombreP = nombreP
                 datosProducto.descripcion = descripcion
+                datosProducto.categoria = categoria
                 datosProducto.valor = valor
                 datosProducto.activo = activo
                 datosProducto.oferta = oferta

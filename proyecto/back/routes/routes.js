@@ -20,8 +20,10 @@ router.delete('/eliminar-usuario/:id', usuarioController.eliminarUsuario)
 
 //Rutas para el token JWT
 
-//Ruta post para recepcion de la informacion del body usando el metodo post
+//Ruta post para recepcion de la informacion del body usando el metodo post para creacion del jwt
 router.post('/login', SessionCOntroler.generarToken)
+//Ruta  post para recepecion del jwt para verificacion de seguridad
+router.post('/info-login', SessionCOntroler.desencriptarToken)
 
 
 //RUTAS PARA LOS SERVICIOS DE PRODUCTOS
