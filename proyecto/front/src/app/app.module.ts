@@ -7,6 +7,8 @@ import { BarraNavComponent } from './components/barra-nav/barra-nav.component';
 import { FooterComponent } from "./components/footer/footer.component";
 import { PaginaInicioComponent } from './components/pagina-inicio/pagina-inicio.component';
 import { LoginComponent } from './components/login/login.component';
+import { CoreproductosComponent } from './components/coreproductos/coreproductos.component';
+import { DetalleproductosComponent } from './components/detalleproductos/detalleproductos.component';
 
 @NgModule({
     declarations: [
@@ -14,7 +16,9 @@ import { LoginComponent } from './components/login/login.component';
         BarraNavComponent,
         FooterComponent,
         PaginaInicioComponent,
-        LoginComponent
+        LoginComponent,
+        CoreproductosComponent,
+        DetalleproductosComponent
     ],
     imports: [
         BrowserModule,
