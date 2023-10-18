@@ -18,3 +18,104 @@ body {
     min-height: 100vh;
     grid-template-rows: auto 1fr auto;
 }
+
+.input-wrapper {
+    position: relative;
+    width: 95%;
+    margin: 10px auto;
+}
+
+.input-box {
+    font-size: 16px;
+    padding: 9px 0;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    color: #cfe2e9;
+    width: 100%;
+    background-color: transparent;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.input-box:focus {
+    border-color: var(--color-oro);
+    outline: none;
+}
+
+.input-box:focus+.underline {
+    transform: scaleX(1);
+}
+
+.button {
+    padding: 0.8em 1.75em;
+    background-color: transparent;
+    border-radius: 6px;
+    border: .3px solid var(--color-oro);
+    transition: .5s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.button::after,
+.button::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    transform: skew(90deg) translate(-50%, -50%);
+    position: absolute;
+    inset: 50%;
+    left: 25%;
+    z-index: -1;
+    transition: .5s ease-out;
+    background-color: var(--color-oro);
+}
+
+.button::before {
+    top: -50%;
+    left: -25%;
+    transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+}
+
+.button:hover::before {
+    transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+}
+
+.button:hover::after {
+    transform: skew(45deg) translate(-50%, -50%);
+}
+
+.button:hover {
+    color: var(--color2);
+}
+
+.button:active {
+    filter: brightness(.7);
+    transform: scale(.98);
+}
+
+.button-submit {
+    margin: 15px 0 10px 0;
+    background-color: #151717;
+    border: 1px solid;
+    border-color: var(--color-oro);
+    color: #e4e0e0;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    height: 45px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.button-submit:disabled {
+    background-color: #000;
+    color: #4e4e4e;
+    cursor: not-allowed;
+}
