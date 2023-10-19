@@ -14,11 +14,21 @@
 }
 
 body {
-    padding-top: 5rem;
+    padding-top: 4.5rem;
     display: grid;
     min-height: 100vh;
     grid-template-rows: auto 1fr auto;
     background-color: black !important;
+}
+
+a {
+    cursor: pointer;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .input-wrapper {
@@ -61,7 +71,7 @@ body {
     font-size: 14px;
     font-family: 'Roboto', 'Segoe UI', sans-serif;
     text-transform: uppercase;
-    color: #000;
+    color: #ffffffcc;
 }
 
 .button::after,
@@ -94,7 +104,7 @@ body {
 }
 
 .button:hover {
-    color: var(--color2);
+    color: #000;
 }
 
 .button:active {
