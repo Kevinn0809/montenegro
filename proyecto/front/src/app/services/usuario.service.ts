@@ -22,11 +22,11 @@ export class UsuarioService {
     }
 
     postUsuario(usuarioD: Usuario): Observable<any> {
-        return this.http.post(`${this.url}/crearproducto`, usuarioD)
+        return this.http.post(`${this.url}/usuario`, usuarioD)
     }
 
     putEditarUsuario(idUsuario: string | null, dataUsuario: Usuario): Observable<any> {
-        return this.http.put(`${this.url}/edit-producto${idUsuario}`, dataUsuario)
+        return this.http.put(`${this.url}/edit-usuario${idUsuario}`, dataUsuario)
     }
 
     //Endpoint para creacion de token de seguridad

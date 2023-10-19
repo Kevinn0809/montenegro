@@ -129,5 +129,6 @@ input[type=number]::-webkit-outer-spin-button {
 .button-submit:disabled {
     background-color: #000;
     color: #4e4e4e;
+    border-color: #ff0000;
     cursor: not-allowed;
 }

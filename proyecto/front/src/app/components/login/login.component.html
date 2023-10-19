@@ -41,35 +41,70 @@
                         <div type="button" class="fa-solid fa-xmark fs-5" data-bs-dismiss="modal" aria-label="Close">
                         </div>
                     </div>
-                    <form class="form bg-dark">
+                    <form [formGroup]="formRegister" (ngSubmit)="registerUser()" class="form bg-dark">
                         <p class="title">Registro</p>
                         <div class="flex">
                             <div class="input-wrapper">
-                                <input class="input-box" required="" type="text" placeholder="Nombres">
+                                <input class="input-box" formControlName="nombres" required="" type="text"
+                                    placeholder="Nombres">
                                 <span class="underline"></span>
+                                <div *ngIf="formRegister.get('nombres')!.hasError('required') && formRegister.get('nombres')!.touched"
+                                    class="fw-bold text-danger">Campo requerido</div>
+                                <div *ngIf="formRegister.get('nombres')!.hasError('pattern') && formRegister.get('nombres')!.touched"
+                                    class="fw-bold text-danger">Campo invalido</div>
                             </div>
                             <div class="input-wrapper">
-                                <input class="input-box" required="" type="text" placeholder="Apellidos">
+                                <input class="input-box" formControlName="apellidos" required="" type="text"
+                                    placeholder="Apellidos">
                                 <span class="underline"></span>
+                                <div *ngIf="formRegister.get('apellidos')!.hasError('required') && formRegister.get('apellidos')!.touched"
+                                    class="fw-bold text-danger">Campo requerido</div>
+                                <div *ngIf="formRegister.get('apellidos')!.hasError('pattern') && formRegister.get('apellidos')!.touched"
+                                    class="fw-bold text-danger">Campo invalido</div>
                             </div>
                         </div>
                         <div class="input-wrapper">
-                            <input class="input-box" required="" type="email" placeholder="Correo">
+                            <input class="input-box" formControlName="correo" required="" type="email"
+                                placeholder="Correo">
                             <span class="underline"></span>
+                            <div *ngIf="formRegister.get('correo')!.hasError('required') && formRegister.get('correo')!.touched"
+                                class="fw-bold text-danger">Campo requerido</div>
+                            <div *ngIf="formRegister.get('correo')!.hasError('pattern') && formRegister.get('correo')!.touched"
+                                class="fw-bold text-danger">Campo invalido</div>
                         </div>
                         <div class="input-wrapper">
-                            <input class="input-box" required="" type="number" placeholder="Celular">
+                            <input class="input-box" formControlName="contacto" required="" type="number"
+                                placeholder="Celular">
                             <span class="underline"></span>
+                            <div *ngIf="formRegister.get('contacto')!.hasError('required') && formRegister.get('contacto')!.touched"
+                                class="fw-bold text-danger">Campo requerido</div>
+                            <div *ngIf="formRegister.get('contacto')!.hasError('pattern') && formRegister.get('contacto')!.touched"
+                                class="fw-bold text-danger">Campo invalido</div>
+                            <div *ngIf="formRegister.get('contacto')?.hasError('minlength')"
+                                class="fw-bold text-danger">El campo contraseña debe contener como mínimo 10 caracteres
+                            </div>
                         </div>
                         <div class="input-wrapper">
-                            <input class="input-box" required="" type="password" placeholder="Contraseña">
+                            <input class="input-box" formControlName="password" required="" type="password"
+                                placeholder="Contraseña">
                             <span class="underline"></span>
+                            <div *ngIf="formRegister.get('password')!.hasError('required') && formRegister.get('password')!.touched"
+                                class="fw-bold text-danger">Campo requerido</div>
+                            <div *ngIf="formRegister.get('password')!.hasError('pattern') && formRegister.get('password')!.touched"
+                                class="fw-bold text-danger">Campo invalido</div>
                         </div>
                         <div class="input-wrapper">
-                            <input class="input-box" required="" type="password" placeholder="Confirmar contraseña">
+                            <input class="input-box" required="" #passConfirm (keyup)="confirmPass()" type="password"
+                                placeholder="Confirmar contraseña">
                             <span class="underline"></span>
+                            <div class="d-none" #alertPass>
+                                <div class="fw-bold text-danger" role="alert">
+                                    Sus contraseñas no son iguales
+                                </div>
+                            </div>
                         </div>
-                        <button class="button-submit">Crear cuenta</button>
+                        <button class="button-submit" #submitRegister [disabled]="formRegister.invalid">Crear
+                            cuenta</button>
                     </form>
                 </div>
             </div>

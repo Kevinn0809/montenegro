@@ -42,7 +42,7 @@ exports.crearUsuario = async (req, res) => {
         const usuarioExistente = await UsuarioModel.findOne({ "correo": req.body.correo }).exec()
         if (usuarioExistente != null) {
             res.status(503).json({ response: "El usuario ya existe" })
-            console.log('"El usuario ya existe"');
+            console.log("El usuario ya existe");
             return
         }
         let usuario
