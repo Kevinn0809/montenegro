@@ -7,6 +7,7 @@ import { BarraNavComponent } from './components/barra-nav/barra-nav.component';
 import { FooterComponent } from "./components/footer/footer.component";
 import { PaginaInicioComponent } from './components/pagina-inicio/pagina-inicio.component';
 import { LoginComponent } from './components/login/login.component';
+import { Error404Component } from './components/error404/error404.component';
 
 @NgModule({
     declarations: [
@@ -14,7 +15,8 @@ import { LoginComponent } from './components/login/login.component';
         BarraNavComponent,
         FooterComponent,
         PaginaInicioComponent,
-        LoginComponent
+        LoginComponent,
+        Error404Component
     ],
     imports: [
         BrowserModule,
