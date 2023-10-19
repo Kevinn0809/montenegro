@@ -10,16 +10,18 @@
                 </div>
             </div>
             <div class="bloqueDerecho">
-                <form class="formLogin">
+                <form class="formLogin" (ngSubmit)="IngresoUsuario()">
                     <div class="input-wrapper">
-                        <input class="input-box" type="email" placeholder="Correo">
+                        <input class="input-box" type="email" placeholder="Correo" [(ngModel)]="Userformlogin.correo"
+                            [ngModelOptions]="{ standalone : true }">
                         <span class="underline"></span>
                     </div>
                     <div class="input-wrapper">
-                        <input class="input-box" type="password" placeholder="Contraseña">
+                        <input class="input-box" type="password" placeholder="Contraseña"
+                            [(ngModel)]="Userformlogin.password" [ngModelOptions]="{ standalone : true }">
                         <span class="underline"></span>
                     </div>
-                    <button class="button-submit">Iniciar sesión</button>
+                    <button type="submit" class="button-submit">Iniciar sesión</button>
                     <div class="text-white pt-1">
                         <a class="text-decoration-none" routerLink="#">¿Olvido su Contraseña?</a>
                     </div>
