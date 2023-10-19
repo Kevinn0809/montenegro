@@ -8,6 +8,8 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { PaginaInicioComponent } from './components/pagina-inicio/pagina-inicio.component';
 import { LoginComponent } from './components/login/login.component';
 import { Error404Component } from './components/error404/error404.component';
+import { CoreproductosComponent } from './components/coreproductos/coreproductos.component';
+import { DetalleproductosComponent } from './components/detalleproductos/detalleproductos.component';
 
 @NgModule({
     declarations: [
@@ -16,7 +18,9 @@ import { Error404Component } from './components/error404/error404.component';
         FooterComponent,
         PaginaInicioComponent,
         LoginComponent,
-        Error404Component
+        Error404Component,
+        CoreproductosComponent,
+        DetalleproductosComponent
     ],
     imports: [
         BrowserModule,
