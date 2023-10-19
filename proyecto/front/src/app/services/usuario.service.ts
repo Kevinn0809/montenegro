@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Usuario } from "../models/Usuario";
 
@@ -13,7 +13,8 @@ export class UsuarioService {
     url = 'http://localhost:3000/api'
 
     getTodoslosUsuarios(): Observable<any> {
-        return this.http.get(`${this.url}/obtener-usuarios`)
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('token')}`)
+        return this.http.get(`${this.url}/obtener-usuarios`, { headers })
     }
 
     getUnsoloUsuario(idUsuario: string): Observable<any> {
