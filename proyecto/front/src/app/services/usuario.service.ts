@@ -26,7 +26,7 @@ export class UsuarioService {
     }
 
     putEditarUsuario(idUsuario: string | null, dataUsuario: Usuario): Observable<any> {
-        return this.http.put(`${this.url}/edit-producto/${idUsuario}`, dataUsuario)
+        return this.http.put(`${this.url}/edit-usuario/${idUsuario}`, dataUsuario)
     }
 
     //Endpoint para creacion de token de seguridad
