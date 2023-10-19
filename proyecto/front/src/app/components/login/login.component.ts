@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
     @ViewChild('passConfirm') passConfirm!: ElementRef
     @ViewChild('alertPass') alertPass!: ElementRef
     @ViewChild('submitRegister') submitRegister!: ElementRef
+    @ViewChild('cerrarBtnRegistro') cerrarBtnRegistro!: ElementRef
 
     constructor(private fb: FormBuilder, private _usuarioService: UsuarioService, private router: Router, private idUsuarioRuta: ActivatedRoute) {
         this.formRegister = this.fb.group({
@@ -42,6 +43,10 @@ export class LoginComponent implements OnInit {
     }
     ngOnInit(): void {
 
+    }
+
+    resetform() {
+        this.formRegister.reset()
     }
 
     registerUser() {
@@ -75,6 +80,9 @@ export class LoginComponent implements OnInit {
                         }
                     });
                     console.log(data)
+                    this.resetform()
+                    this.cerrarBtnRegistro.nativeElement.click()
+
                 })
             } else {
                 console.log('ayuda')
