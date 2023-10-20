@@ -27,3 +27,11 @@
     position: absolute;
     right: 18px;
 }
+
+.title {
+    color: var(--color-oro);
+}
+
+.description {
+    color: #ffffffcc;
+}

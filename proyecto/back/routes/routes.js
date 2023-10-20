@@ -30,7 +30,7 @@ router.post('/info-login', SessionCOntroler.desencriptarToken)
 //Ruta para obtener todos los Productos (GET TOTAL)
 router.get('/obtener-all-productos', mdJWT.verificarToken, productoControlador.ObtenerAllProductos)
 //Ruta para obtener un solo producto por su id (GET INDIVIDUAL POR ID)
-router.get('obtenerProducto/:id', productoControlador.ObtenerunSoloProducto)
+router.get('/obtenerProducto/:id', productoControlador.ObtenerunSoloProducto)
 //Ruta para obtener productos con llave Activo : true
 router.get('/productos-disponibles', productoControlador.ObtenerProductosActivos)
 //Ruta para obtener productos en oferta : true

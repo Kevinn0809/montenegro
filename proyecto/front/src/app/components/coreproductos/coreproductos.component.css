@@ -1,23 +1,23 @@
-.cont{
+.cont {
     background-color: var(--fondopp);
 }
-.color{
-    color: #ffffff
-}
-.colorb{
-    color: #ffffff !important;
-}
-.pro{
-    color: var(--color-oro);
-}
-.carta{
-    height: auto;
+
+.letramodal {
+    color: #ffffffcc;
 }
 
-.carta img{
-    display: inline-block;
-    vertical-align: middle;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.precio {
+    color: var(--color-oro);
+}
+
+.pro {
+    color: var(--color-oro);
+}
+
+.carta {
+    background-color: #BEBEBE;
+}
+
+.letram {
+    color: #BEBEBE;
 }
