@@ -24,7 +24,12 @@ const Productshcema = mongoose.Schema({
     oferta: {
         type: Boolean,
         required: true
+    },
+    imagen: {
+        type: String,
+        require: true
     }
+
 },
     {
         versionKey: false,
