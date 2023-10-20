@@ -38,7 +38,7 @@ router.get('/productos-oferta', productoControlador.ObtenerProductosOferta)
 //Ruta para crear un nuevo Producto
 router.post('/crearproducto', productoControlador.crearNuevoProducto)
 //Ruta para editar un Producto con busqueda por su id 
-router.put('/edit-producto/:id', mdJWT.verificarToken, productoControlador.EditarProducto)
+router.put('/edit-usuario/:id', mdJWT.verificarToken, productoControlador.EditarProducto)
 //Ruta para eliminar un producto por su id 
 router.delete('/eliminar-producto/:id', mdJWT.verificarToken, productoControlador.eliminarProducto)
 

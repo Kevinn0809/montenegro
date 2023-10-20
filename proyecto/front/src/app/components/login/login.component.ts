@@ -127,10 +127,12 @@ export class LoginComponent implements OnInit {
                 let objetosJson = JSON.parse(jsonString)
                 let rolUsuario = objetosJson.rol
                 if (rolUsuario === "admin") {
-                    const Createtok = sessionStorage.setItem('Rol', 'admin')
+                    sessionStorage.setItem('Rol', 'admin')
+                    location.reload()
                     this.router.navigate([''])
                 } else {
-                    const Createtokrol = sessionStorage.setItem('Rol', 'usuario')
+                    sessionStorage.setItem('Rol', 'cliente')
+                    location.reload()
                     this.router.navigate([''])
                 }
             })
