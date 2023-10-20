@@ -39,6 +39,14 @@ export class UsuarioService {
         return (sessionStorage.getItem('token') != null) ? true : false
     }
 
+    esAdmin() {
+        return (sessionStorage.getItem('Rol') === 'admin') ? true : false
+    }
+
+    esCliente() {
+        return (sessionStorage.getItem('Rol') === 'cliente') ? true : false
+    }
+
     postDesencriptarToken(token: string) {
         return this.http.post(`${this.url}/info-login`, { tokenUser: token })
     }

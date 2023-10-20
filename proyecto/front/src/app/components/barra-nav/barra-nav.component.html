@@ -47,9 +47,51 @@
                                 <i class="fa-regular fa-user iconUserNav"></i>
                             </a>
                         </li>
+                        <ng-container *ngIf="_usuarioservice.estaLogueado()" ; else #seccionvacio>
+                            <li class="menu-item-login nav-item nav-link">
+                                <button class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#Menuclienteadmin"
+                                    aria-controls="offcanvasExample">
+                                    <i class="fa-solid fa-bars"></i>
+                                </button>
+                            </li>
+
+                        </ng-container>
+                        <ng-template #seccionvacio>
+                        </ng-template>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </nav>
+
+
+
+<div class="offcanvas offcanvas-start" data-bs-theme="dark" tabindex="-1" id="Menuclienteadmin"
+    aria-labelledby="Contenidooffcanva">
+
+    <ng-container *ngIf="_usuarioservice.esCliente() || _usuarioservice.esAdmin()" ; else #seccionAmdin>
+
+        <div class="d-flex justify-content-end">
+            <button #botoncerrarcanva type="button" class="btn-close px-2 py-2 " data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="d-flex justify-content-center">
+            <h5 class="offcanvas-title align-items-center titleoffcanva" id="Contenidooffcanva">Menú</h5>
+        </div>
+        <div class="d-flex row justify-content-center align-content-center mt-5">
+            <button class="btn" (click)="cerrarSesion()">Cerrar sesión</button>
+            <button class="btn">Mi perfil (En construccion)</button>
+            <button class="btn">Carrito de compra (En construccion)</button>
+        </div>
+    </ng-container>
+    <div *ngIf="_usuarioservice.esAdmin()" class="d-flex row justify-content-center align-content-center">
+        <div class="d-flex justify-content-center">
+            <h5 class="offcanvas-title align-items-center titleoffcanva">Administrador</h5>
+        </div>
+        <div class="d-flex row justify-content-center align-content-center ">
+            <button class="btn">Gestion - Usuarios</button>
+            <button class="btn">Gestion - productos</button>
+        </div>
+    </div>
+</div>
