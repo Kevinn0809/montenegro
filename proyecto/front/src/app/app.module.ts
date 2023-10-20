@@ -25,7 +25,6 @@ import { UsuariosListaComponent } from './components/admin/usuarios-lista/usuari
         Error404Component,
         CoreproductosComponent,
         DetalleproductosComponent,
-        UsuariosListaComponent,
         UsuariosListaComponent
     ],
     imports: [
