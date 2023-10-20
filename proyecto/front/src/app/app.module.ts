@@ -23,7 +23,7 @@ import { DetalleproductosComponent } from './components/detalleproductos/detalle
         LoginComponent,
         Error404Component,
         CoreproductosComponent,
-        DetalleproductosComponent
+        DetalleproductosComponent,
     ],
     imports: [
         BrowserModule,
