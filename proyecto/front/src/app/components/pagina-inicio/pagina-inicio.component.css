@@ -1,16 +1,29 @@
-.tx{
+.tx {
     color: var(--color-oro);
 }
-.txx{
+
+.txx {
     color: #BEBEBE;
 }
-.cont{
+
+.cont {
     background-color: var(--fondopp);
 }
-.aa{
+
+.aa {
     background-color: var(--color-oro);
 }
-.aaa{
+
+.aaa {
     background-color: #BEBEBE;
 }
 
+.carousel-control-prev-icon {
+    position: absolute;
+    left: 18px;
+}
+
+.carousel-control-next-icon {
+    position: absolute;
+    right: 18px;
+}

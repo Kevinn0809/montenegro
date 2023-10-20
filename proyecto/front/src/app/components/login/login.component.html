@@ -76,16 +76,16 @@
                                 class="fw-bold text-danger">Campo invalido</div>
                         </div>
                         <div class="input-wrapper">
-                            <input class="input-box" formControlName="contacto" required="" type="number"
-                                placeholder="Celular">
+                            <input class="input-box" formControlName="contacto" required="" type="text"
+                                placeholder="Celular" minlength="10" maxlength="10">
                             <span class="underline"></span>
                             <div *ngIf="formRegister.get('contacto')!.hasError('required') && formRegister.get('contacto')!.touched"
                                 class="fw-bold text-danger">Campo requerido</div>
                             <div *ngIf="formRegister.get('contacto')!.hasError('pattern') && formRegister.get('contacto')!.touched"
                                 class="fw-bold text-danger">Campo invalido</div>
-                            <div *ngIf="formRegister.get('contacto')?.hasError('minlength')"
+                            <!-- <div *ngIf="formRegister.get('contacto')?.hasError('minlength')"
                                 class="fw-bold text-danger">El campo contraseña debe contener como mínimo 10 caracteres
-                            </div>
+                            </div> -->
                         </div>
                         <div class="input-wrapper">
                             <input class="input-box" formControlName="password" required="" type="password"
@@ -96,7 +96,7 @@
                             <div *ngIf="formRegister.get('password')!.hasError('pattern') && formRegister.get('password')!.touched"
                                 class="fw-bold text-danger">Campo invalido</div>
                         </div>
-                        <div class="input-wrapper">
+                        <!-- <div class="input-wrapper">
                             <input class="input-box" required="" #passConfirm (keyup)="confirmPass()" type="password"
                                 placeholder="Confirmar contraseña">
                             <span class="underline"></span>
@@ -105,7 +105,7 @@
                                     Sus contraseñas no son iguales
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <button class="button-submit" #submitRegister [disabled]="formRegister.invalid">Crear
                             cuenta</button>
                     </form>
