@@ -15,6 +15,7 @@ exports.generarToken = async (req, res) => {
 
     const payload = {
         usuarioId: usuario._id,
+        nombreU: usuario.nombres,
         correoE: usuario.correo,
         rol: usuario.rol
     }

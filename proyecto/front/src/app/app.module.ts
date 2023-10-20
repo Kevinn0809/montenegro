@@ -13,6 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { Error404Component } from './components/error404/error404.component';
 import { CoreproductosComponent } from './components/coreproductos/coreproductos.component';
 import { DetalleproductosComponent } from './components/detalleproductos/detalleproductos.component';
+import { UsuariosListaComponent } from './components/admin/usuarios-lista/usuarios-lista.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import { DetalleproductosComponent } from './components/detalleproductos/detalle
         LoginComponent,
         Error404Component,
         CoreproductosComponent,
-        DetalleproductosComponent
+        DetalleproductosComponent,
+        UsuariosListaComponent
     ],
     imports: [
         BrowserModule,

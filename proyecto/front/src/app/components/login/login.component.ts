@@ -10,7 +10,7 @@ import { Token } from '@angular/compiler';
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
     Userformlogin = {
         correo: '',
         password: ''
@@ -40,9 +40,6 @@ export class LoginComponent implements OnInit {
             password: ['', [Validators.required, Validators.pattern(this.regexPassword)]]
         })
         this.idUsuarioUrl = this.idUsuarioRuta.snapshot.paramMap.get('id')
-    }
-    ngOnInit(): void {
-
     }
 
     resetform() {
@@ -113,19 +110,26 @@ export class LoginComponent implements OnInit {
             let TokenApi = respuestaApi.token
             sessionStorage.setItem('token', respuestaApi.token)
             this._usuarioService.postDesencriptarToken(TokenApi).subscribe((respuestApi2: any) => {
-
                 sessionStorage.setItem('infoUsuario', JSON.stringify(respuestApi2.decodedPayload))
+                sessionStorage.setItem('Redirected', "true")
                 let jsonString: any = sessionStorage.getItem('infoUsuario')
                 let objetosJson = JSON.parse(jsonString)
                 let rolUsuario = objetosJson.rol
+                let Nombreusuario = objetosJson.nombreU
+                Swal.fire({
+                    title: `Hola ${Nombreusuario}`,
+                    html: '¡Bienvenido a Montenegro Joyeria!',
+                    timer: 1500
+                })
+                this.resetFormingreso()
                 if (rolUsuario === "admin") {
                     sessionStorage.setItem('Rol', 'admin')
-                    location.reload()
-                    this.router.navigate([''])
-                } else {
+                    // window.location.reload()
+                    this.router.navigate(['/'])
+                } else if (rolUsuario === "cliente") {
                     sessionStorage.setItem('Rol', 'cliente')
-                    location.reload()
-                    this.router.navigate([''])
+                    // window.location.reload()
+                    this.router.navigate(['/'])
                 }
             })
         }, err => {
@@ -136,4 +140,10 @@ export class LoginComponent implements OnInit {
         })
     }
 
+    resetFormingreso() {
+        this.Userformlogin = {
+            correo: '',
+            password: ''
+        }
+    }
 }
