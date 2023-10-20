@@ -13,7 +13,6 @@ export class BarraNavComponent implements OnInit {
     @ViewChild('botoncerrarcanva') botoncerrarcanva!: ElementRef
 
     ngOnInit(): void {
-        // this.redirected()
     }
 
     constructor(public _usuarioservice: UsuarioService, private router: Router) { }
