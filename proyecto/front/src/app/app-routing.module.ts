@@ -9,6 +9,7 @@ import { autenticacionGuard } from "src/app/guards/autenticacion.guard";
 import { esAdminGuard } from "src/app/guards/es-admin.guard";
 import { esClienteGuard } from "src/app/guards/es-cliente.guard";
 import { UsuariosListaComponent } from './components/admin/usuarios-lista/usuarios-lista.component';
+import { ProductosCrudComponent } from './components/admin/productos-crud/productos-crud.component';
 
 const routes: Routes = [
     { path: '', component: PaginaInicioComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
     { path: 'productos', component: CoreproductosComponent },
     { path: 'detalleproducto/:id', component: DetalleproductosComponent },
     { path: 'admin/lista-usuarios', canMatch: [autenticacionGuard, esAdminGuard], component: UsuariosListaComponent },
+    { path: 'admin/productos-lista', canMatch: [esAdminGuard], component: ProductosCrudComponent },
     { path: '404', component: Error404Component },
     { path: '**', redirectTo: '404', pathMatch: 'full' }
 ];

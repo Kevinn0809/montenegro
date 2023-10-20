@@ -41,20 +41,22 @@
                                 <span class="menu-item">Contacto</span>
                             </a>
                         </li>
-                        <li class="menu-item-login nav-item nav-link">
-                            <a routerLink="/ingreso" class="nav-link">
-                                <span class="menu-item">Ingreso</span>
-                                <i class="fa-regular fa-user iconUserNav"></i>
-                            </a>
-                        </li>
-                        <ng-container *ngIf="_usuarioservice.estaLogueado()" ; else #seccionvacio>
+                        <ng-container *ngIf="!_usuarioservice.estalogueado()" ; else #contlogin>
+                            <li class="menu-item-login nav-item nav-link">
+                                <a routerLink="/ingreso" class="nav-link">
+                                    <span class="menu-item">Ingreso</span>
+                                    <i class="fa-regular fa-user iconUserNav"></i>
+                                </a>
+                            </li>
+                        </ng-container>
+                        <ng-template #contlogin></ng-template>
+                        <ng-container *ngIf="_usuarioservice.estalogueado()" ; else #seccionvacio>
                             <li class="menu-item-login nav-item nav-link">
                                 <button class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#Menuclienteadmin"
                                     aria-controls="offcanvasExample">
                                     <i class="fa-solid fa-bars"></i>
                                 </button>
                             </li>
-
                         </ng-container>
                         <ng-template #seccionvacio>
                         </ng-template>
@@ -66,11 +68,10 @@
 </nav>
 
 
+<ng-container *ngIf="_usuarioservice.esAdmin() || _usuarioservice.esCliente()" ; else #seccionvacio>
 
-<div class="offcanvas offcanvas-start" data-bs-theme="dark" tabindex="-1" id="Menuclienteadmin"
-    aria-labelledby="Contenidooffcanva">
-
-    <ng-container *ngIf="_usuarioservice.esCliente() || _usuarioservice.esAdmin()" ; else #seccionAmdin>
+    <div class="offcanvas offcanvas-start" data-bs-theme="dark" tabindex="-1" id="Menuclienteadmin"
+        aria-labelledby="Contenidooffcanva">
 
         <div class="d-flex justify-content-end">
             <button #botoncerrarcanva type="button" class="btn-close px-2 py-2 " data-bs-dismiss="offcanvas"
@@ -81,17 +82,19 @@
         </div>
         <div class="d-flex row justify-content-center align-content-center mt-5">
             <button class="btn" (click)="cerrarSesion()">Cerrar sesión</button>
-            <button class="btn">Mi perfil (En construccion)</button>
-            <button class="btn">Carrito de compra (En construccion)</button>
         </div>
-    </ng-container>
-    <div *ngIf="_usuarioservice.esAdmin()" class="d-flex row justify-content-center align-content-center">
-        <div class="d-flex justify-content-center">
-            <h5 class="offcanvas-title align-items-center titleoffcanva">Administrador</h5>
-        </div>
-        <div class="d-flex row justify-content-center align-content-center ">
-            <button class="btn" routerLink="admin/lista-usuarios">Gestion - Usuarios</button>
-            <button class="btn">Gestion - productos</button>
-        </div>
+        <ng-container *ngIf="_usuarioservice.esAdmin()" ; else #seccioncliente>
+            <div class="d-flex row justify-content-center align-content-center">
+                <div class="d-flex justify-content-center">
+                    <h5 class="offcanvas-title align-items-center titleoffcanva">Administrador</h5>
+                </div>
+                <div class="d-flex row justify-content-center align-content-center ">
+                    <button class="btn" type="button" routerLink="admin/lista-usuarios">Gestion - Usuarios</button>
+                    <!-- <button class="btn" type="button" routerLink="admin/">Gestion - productos</button> -->
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #seccioncliente></ng-template>
     </div>
-</div>
+</ng-container>
+<ng-template #seccionvacio></ng-template>

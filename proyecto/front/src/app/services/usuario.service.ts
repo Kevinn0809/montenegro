@@ -29,12 +29,23 @@ export class UsuarioService {
         return this.http.put(`${this.url}/edit-usuario${idUsuario}`, dataUsuario)
     }
 
+
+    deleteUsuario(idUsuario: string): Observable<any> {
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('token')}`)
+        return this.http.delete(`${this.url}/eliminar-usuario/${idUsuario}`, { headers })
+    }
+
     //Endpoint para creacion de token de seguridad
     postIngresocuenta(datalogin: object): Observable<any> {
         return this.http.post(`${this.url}/login`, datalogin)
     }
 
-    estaLogueado() {
+
+    postDesencriptarToken(token: string) {
+        return this.http.post(`${this.url}/info-login`, { tokenUser: token })
+    }
+
+    estalogueado() {
         //rectifica si el equipo actual esta logueado "tiene token de seguridad"
         return (sessionStorage.getItem('token') != null) ? true : false
     }
@@ -46,9 +57,4 @@ export class UsuarioService {
     esCliente() {
         return (sessionStorage.getItem('Rol') === 'cliente') ? true : false
     }
-
-    postDesencriptarToken(token: string) {
-        return this.http.post(`${this.url}/info-login`, { tokenUser: token })
-    }
-
 }

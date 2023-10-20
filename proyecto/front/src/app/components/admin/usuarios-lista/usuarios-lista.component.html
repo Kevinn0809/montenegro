@@ -1,12 +1,96 @@
-<p>usuarios-lista works!</p>
+<div class="d-flex justify-content-center align-items-center">
+    <h2 class="py-4 titlessss">Seccion de administrador-- Control de Usuarios.</h2>
+</div>
+<div class="d-flex justify-content-end mx-3 my-3">
+    <button class="btn btn-light button" data-bs-toggle="modal" data-bs-target="#Modalcrearusuario">Crear
+        Usuario</button>
+</div>
+
+<section class="container">
+    <div class="table-responsive">
+        <table class="table pt-2">
+            <thead>
+                <tr>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Direccion de correo Electronico</th>
+                    <th scope="col">contacto</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="align-middle" *ngFor="let Usuario of ListaUsuarios">
+                    <td>{{Usuario.nombres}}</td>
+                    <td>{{Usuario.apellidos}}</td>
+                    <td>{{Usuario.correo}}</td>
+                    <td>{{Usuario.contacto}}</td>
+                    <td>{{Usuario.rol}}</td>
+                    <td>
+                        <div class="d-flex ">
+                            <button class="btn btn-warning mx-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Editar
+                            </button>
+                            <button class="btn btn-danger mx-1" (click)="EliminarUsuario(Usuario._id)">Eliminar
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>
 
 
-<h1>tryuiojpk</h1>
 
-<div>
-    <div>
-        <div>
-            exampleeeeeee
+<div class="modal fade" id="Modalcrearusuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h1 class="titlessss d-flex justify-content-center  modal-title fs-5" id="exampleModalLabel">Creacion de
+                    Usuario
+                </h1>
+                <div type="button" class=" text-white fa-solid fa-xmark fs-5" data-bs-dismiss="modal"
+                    aria-label="Close"></div>
+            </div>
+
+            <form>
+
+                <div class="flex">
+                    <div class="input-wrapper">
+                        <input class="input-box" required="" type="text" placeholder="Nombres">
+                        <span class="underline"></span>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="input-wrapper">
+                        <input class="input-box" required="" type="text" placeholder="Apellidos">
+                        <span class="underline"></span>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="input-wrapper">
+                        <input class="input-box" required="" type="text" placeholder="Correo">
+                        <span class="underline"></span>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="input-wrapper">
+                        <input class="input-box" required="" type="text" placeholder="Contraseña">
+                        <span class="underline"></span>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="input-wrapper">
+                        <input class="input-box" required="" type="text" placeholder="Contacto">
+                        <span class="underline"></span>
+                    </div>
+                </div>
+
+
+                <button class=" mx-5 mt-3 btn-light my-4 button" type="submit">Crear cuenta</button>
+            </form>
         </div>
     </div>
 </div>
